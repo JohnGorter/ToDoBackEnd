@@ -1,0 +1,9 @@
+ <h1>{{ todo.title }} </h1><hr/>
+ <p> {{ todo.description }}</p>
+ 
+ <input type="checkbox" ng-model="todo.done" />
+ 
+ <input type="button" ng-click="saveTodo()" value="Save and close"/>
+ <input type="button" ng-click="returnToList()" value="Close" />
+ 
+        

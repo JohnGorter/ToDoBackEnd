@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html ng-app="jgModule">
+<head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular-route.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="./app.js"></script>
+    
+    <title>Todos</title>
+</head>
+
+<body>
+    <div ng-controller="mastercontroller">
+        Admin mode: <input type="checkbox" ng-model="isAdmin" class="btn btn-default"/> <br/>
+        Show todo's marked done: <input type="checkbox" ng-model="showDone" /> <br/>
+        <div ng-view>
+        </div>
+    </div>
+</body>
+</html>

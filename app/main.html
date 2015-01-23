@@ -1,0 +1,54 @@
+ <h1>Welcome</h1><hr/>
+
+<style>
+    .striped { text-decoration: line-through}
+</style>
+        <span ng-repeat="t in categories">
+            
+            <button ng-click="setSelection(t)">{{ t.name }} </button>
+            <span ng-show="$middle || $first"> | </span>
+        </span>
+        
+        <div ng-repeat="t in categories" ng-show="selectedCat === '{{t.name}}'">
+            <br/>Todos in category: 
+            <br/> {{ t.description }}
+            <div ng-repeat="t in todos">
+                
+                <span ng-show="showDone || t.done == false" ng-class="{striped:t.done}"><a href="#/todo/{{t.title}}">{{ t.title}}</a> : {{ t.description}}</span>
+            </div>
+        </div>
+
+        <br/>
+
+        <div ng-show="$parent.isAdmin">
+            <h1>Add a new Category here</h1><hr/>
+         <form novalidate name="catform" ng-submit="saveCategory()";>
+            <dl>
+                <dt>Name</dt>
+                <dd><input type="text" ng-model="newC.name" required></input><br/></dd>
+                <dt>Description</dt>
+                <dd><input type="text" ng-model="newC.description" required></input></dd>
+                <input type="submit" value="save"/>
+            </dl>
+        </form>
+        </div>
+        
+        <br/>
+        
+         <div ng-show="$parent.isAdmin">
+            <h1>Add a new Todo here</h1><hr/>
+         <form novalidate name="catform" ng-submit="saveTodo()";>
+            <dl>
+                <dt>Name</dt>
+                <dd><input type="text" ng-model="newT.title" required></input><br/></dd>
+                <dt>Description</dt>
+                <dd><input type="text" ng-model="newT.description" required></input></dd>
+                <dt>Category</dt>
+                <dd>
+                    <select ng-options="c.id as c.name for c in categories" ng-model="newT.categoryId"></select>
+                    
+                </dd>
+                <input type="submit" value="save"/>
+            </dl>
+        </form>
+        </div>
